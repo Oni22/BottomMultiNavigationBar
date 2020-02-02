@@ -1,7 +1,5 @@
 library bottommultinavigationbar;
+export 'package:bottommultinavigationbar/src/bottom_multi_navigation_bar.dart';
+export 'package:bottommultinavigationbar/src/page_navigator.dart';
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+
