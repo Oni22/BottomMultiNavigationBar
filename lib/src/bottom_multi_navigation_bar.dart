@@ -8,11 +8,11 @@ class BottomMultiNavigationBar extends StatefulWidget {
   final int index;
   final Function(int index) onIndexChanged;
   
-  const BottomMultiNavigationBar({
+  BottomMultiNavigationBar({
     @required this.pageNavigators,
     @required this.index,
     this.onIndexChanged
-    });
+    }) : super();
 
   @override
   _BottomMultiNavigationBarState createState() => _BottomMultiNavigationBarState();
@@ -41,6 +41,7 @@ class _BottomMultiNavigationBarState extends State<BottomMultiNavigationBar> {
     return Offstage(
       offstage: widget.index != index,
       child: Navigator(
+        initialRoute: widget.pageNavigators[index].initialRoute ?? "/",
         onGenerateRoute: widget.pageNavigators[index].onGenerateRoute,
         key: widget.pageNavigators[index].key,
       )
