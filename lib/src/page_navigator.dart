@@ -1,3 +1,4 @@
+import 'package:bottommultinavigationbar/src/flutter_intent.dart';
 import 'package:flutter/widgets.dart';
 
 class PageNavigator {
@@ -6,7 +7,7 @@ class PageNavigator {
     this.bottomNavigationIcon,
     this.bottomNavigationText,
     this.initialRoute,
-    this.onGenerateRoute
+    this.onGenerateRoute,
   });
 
   Route<dynamic> Function(RouteSettings) onGenerateRoute;

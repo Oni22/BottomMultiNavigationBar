@@ -59,9 +59,9 @@ class _BottomMultiNavigationBarState extends State<BottomMultiNavigationBar> {
           }).toList()
         ),
         bottomNavigationBar: Theme(
-          //data: Theme.of(context).copyWith(
-          //  canvasColor: VidlyCorp.bottomNavigationColor
-          //),
+          data: Theme.of(context).copyWith(
+            canvasColor: Colors.white
+          ),
           child: BottomNavigationBar(
             //selectedItemColor: VidlyCorp.primaryColor,
             //unselectedItemColor: VidlyCorp.darkMode,
