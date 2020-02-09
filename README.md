@@ -6,13 +6,13 @@ A bottom multi navigation bar with navigation for each fragment
 
 ### 1. import bottommultinavigationbar
 
-´´´dart 
+```dart 
 import 'package:bottommultinavigationbar/bottommultinavigationbar.dart';
-´´´
+```
 
 ### 2. Create a list of PageNavigators:
 
-´´´dart 
+```dart 
 var pages = [
   PageNavigator(
     bottomNavigationIcon: Icon(Icons.ac_unit),
@@ -36,12 +36,13 @@ var pages = [
     }
   ),
 ];
-´´´
+```
+
 Be sure that you use "/" in your namings like "/page1". PageNavigator.home represents the home page of the fragment. From there the navigator will navigate to your pages inside of the fragment without leaving the bottom navigation view. With the "initialRoute" attribute you can specify a different start point for each of your fragment.
 
 ### 3. Use the BottomMultiNavigationBar Widget
 
-´´´dart
+```dart
   @override
   Widget build(BuildContext context) {
     return BottomMultiNavigationBar(
@@ -54,7 +55,7 @@ Be sure that you use "/" in your namings like "/page1". PageNavigator.home repre
       },
     );
   }
-´´´
+```
 
 
 
