@@ -1,8 +1,7 @@
 name: bottommultinavigationbar
-description: A new Flutter package project.
-version: 0.0.1
-author:
-homepage:
+description: A widget where each fragment has their own navigation history inside the bottom navigation bar
+version: 1.0.1
+homepage: https://www.onurozkan.net/
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

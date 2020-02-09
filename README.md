@@ -1,6 +1,6 @@
 # bottommultinavigationbar
 
-A bottom multi navigation bar with navigation for each fragment
+A widget where each fragment has their own navigation history inside the bottom navigation bar
 
 ## Getting Started
 
