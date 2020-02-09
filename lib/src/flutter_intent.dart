@@ -4,13 +4,15 @@ class FlutterIntent {
 
   Map<String,dynamic> _extras = {};
   BuildContext context;
-  String next;
+  String name;
   dynamic _object;
 
   FlutterIntent({
     @required this.context,
-    @required this.next
+    @required this.name
   });
+
+  FlutterIntent.withNoContext({this.name});
 
   void putExtra(String key, dynamic value) {
     _extras[key] = value;
@@ -43,7 +45,7 @@ class FlutterIntent {
   }
 
   void startActivity() {
-    Navigator.pushNamed(context, next,arguments: this);
+    Navigator.pushNamed(context, name,arguments: this);
   }
 
   bool hasData () {

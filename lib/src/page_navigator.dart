@@ -17,9 +17,12 @@ class PageNavigator {
   });
 
   Route<dynamic> getNextFromIntent(RouteSettings settings) {
-    if(flutterIntentService != null && settings.arguments is FlutterIntent)
+    if(flutterIntentService != null && settings.arguments is FlutterIntent && settings.arguments != null)
       return MaterialPageRoute(builder: (_) => flutterIntentService.onIntent(settings.arguments));
-    else return null;
+    else if(settings.arguments == null) {
+      MaterialPageRoute(builder: (_) => flutterIntentService.onIntent(FlutterIntent.withNoContext(name: "/")));
+    }
+    return MaterialPageRoute(builder: (_) => FlutterIntentError(message: "Error"));
   }
 
   Route<dynamic> Function(RouteSettings) onGenerateRoute;
@@ -30,4 +33,19 @@ class PageNavigator {
   Widget activeIcon;
   GlobalKey<NavigatorState> key = GlobalKey<NavigatorState>();
   FlutterIntentService flutterIntentService;
+}
+
+class FlutterIntentError extends StatelessWidget {
+
+  final String message;
+  const FlutterIntentError({Key key,this.message}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Text(message),
+      ),
+    );
+  }
 }
