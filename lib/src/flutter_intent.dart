@@ -60,6 +60,7 @@ class FlutterIntent {
     return null;
   }
 
+  /// start next widget
   void startActivity() {
     Navigator.pushNamed(context, name,arguments: this);
   }
@@ -68,6 +69,7 @@ class FlutterIntent {
     return _extras.isNotEmpty || _object != null;
   }
 
+  /// Force overlay the bottom navigation bar
   startAsRootNavigator(BuildContext context,page) {
     Navigator.of(context,rootNavigator: true).pushNamed(page,arguments: this);
   }
@@ -79,6 +81,7 @@ class FlutterIntentService {
     this.onIntent
   });
 
+  /// Converts the onGenerateSettings data to a FlutterIntent structure
   static Route<dynamic> convertToIntentService(RouteSettings settings,Widget Function(FlutterIntent intent) builder) {
    return MaterialPageRoute(builder: (_) => builder(settings.arguments));
   }
