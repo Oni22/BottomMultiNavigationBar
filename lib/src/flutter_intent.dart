@@ -67,13 +67,21 @@ class FlutterIntent {
     return _extras.isNotEmpty || _object != null;
   }
 
+  static asRootNavigator(BuildContext context,page) {
+    Navigator.of(context,rootNavigator: true).pushNamed(page);
+  }
+
 }
 
 class FlutterIntentService {
   FlutterIntentService({
     this.onIntent
   });
-  static String home;
+
+  static convertToIntentService(RouteSettings settings,Widget Function(FlutterIntent intent) builder) {
+    builder(settings.arguments);
+  }
+
   Widget Function(FlutterIntent intent) onIntent;
 
 }
