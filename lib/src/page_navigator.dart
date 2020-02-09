@@ -2,6 +2,12 @@ import 'package:bottommultinavigationbar/src/flutter_intent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+/// With the PageNavigator you can specify the style and behavior of your page. 
+/// Each PageNavigtor represents a page under the BottomNavigationBar. A PageNavigator
+/// has his own navigator which navigates inside the page without leaving the BottomNavigationBar Widget.
+/// IMPORTANT: This widget implements two navigation systems. The first one is the onGenerateRoute attribute that you can
+/// use as usual. The second one is the FlutterIntentService. This system is especially developed for this package. Please use
+/// only one of the systems. So if you want to use the onGenerateRoute attribute the flutterIntentService has to be null and vice versa.
 class PageNavigator {
 
   static String home = "/";
@@ -22,7 +28,7 @@ class PageNavigator {
     else if(settings.arguments == null) {
       return MaterialPageRoute(builder: (_) => flutterIntentService.onIntent(FlutterIntent.withNoContext(name: "/")));
     }
-    return MaterialPageRoute(builder: (_) => FlutterIntentError(message: "Error"));
+    return MaterialPageRoute(builder: (_) => FlutterIntentError(message: "ERROR: The FlutterIntent or the flutterIntenService of the PageNavigator attribute is null"));
   }
 
   Route<dynamic> Function(RouteSettings) onGenerateRoute;

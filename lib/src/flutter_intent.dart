@@ -24,24 +24,39 @@ class FlutterIntent {
 
   T getObjectExtra<T>() => _object as T;
 
-  String getStringExtra(String key) {
-    return _extras[key] as String;
+  String getStringExtra(String key, {String defaultValue = ""}) {
+    if(_extras.containsKey(key)) {
+      return _extras[key] as String;
+    }
+    return defaultValue;
   }
 
-  bool getBooleanExtra(String key) {
-    return _extras[key] as bool;
+  bool getBoolExtra(String key, {bool defaultValue = false}) {
+    if(_extras.containsKey(key)) {
+      return _extras[key] as bool;
+    }
+    return defaultValue;
   }
 
-  int getIntExtra(String key) {
-    return _extras[key] as int;
+  int getIntExtra(String key, {int defaultValue = 0}) {
+    if(_extras.containsKey(key)) {
+      return _extras[key] as int;
+    }
+    return defaultValue;
   }
 
-  double getDoubleExtra(String key) {
-    return _extras[key] as double;
+  double getDoubleExtra(String key, {double defaultValue = 0.0}) {
+    if(_extras.containsKey(key)) {
+      return _extras[key] as double;
+    }
+    return defaultValue;
   }
 
   dynamic getExtra<T>(String key) {
-    return _extras[key] as T;
+    if(_extras.containsKey(key)) {
+      return _extras[key] as T;
+    }
+    return null;
   }
 
   void startActivity() {
