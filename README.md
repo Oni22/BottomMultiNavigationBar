@@ -122,3 +122,5 @@ FlutterIntent(context: context,name: "/page2")
 ```
 
 Don't forget to call the startActivity in the end. This will start the next activity and pass your data to the next page which you defined in the PageNavigator in step 1.
+
+![Alt Text](https://drive.google.com/open?id=1YkZMu8SJmJej1Sdmo2on74qJm_6SgAue)
