@@ -98,7 +98,7 @@ class _BottomMultiNavigationBarState extends State<BottomMultiNavigationBar> {
           ),
           child: BottomNavigationBar(
             selectedItemColor: widget.selectedItemColor,
-            unselectedItemColor: widget.unselectedItemColor ?? const IconThemeData(),
+            unselectedItemColor: widget.unselectedItemColor,
             currentIndex: widget.index ?? 0,
             selectedFontSize: widget.selectedFontSize ?? 14.0,
             selectedLabelStyle: widget.selectedLabelStyle,
@@ -110,7 +110,7 @@ class _BottomMultiNavigationBarState extends State<BottomMultiNavigationBar> {
             elevation: widget.elevation ?? 8.0,
             iconSize: widget.iconSize ?? 24.0,
             unselectedFontSize: widget.unselectedFontSize ?? 12.0,
-            unselectedIconTheme: widget.unselectedIconTheme,
+            unselectedIconTheme: widget.unselectedIconTheme ?? const IconThemeData(),
             unselectedLabelStyle: widget.unselectedLabelStyle,
             type: widget.type ?? BottomNavigationBarType.fixed,
             onTap: (index) {
