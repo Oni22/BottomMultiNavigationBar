@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:bottommultinavigationbar/src/flutter_intent.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -16,6 +19,7 @@ class PageNavigator {
     this.bottomNavigationIcon,
     this.bottomNavigationText,
     this.flutterIntentService,
+    this.customPageRoute,
     this.onGenerateRoute,
     this.initialRoute,
     this.backgroundColor,
@@ -23,10 +27,17 @@ class PageNavigator {
   });
 
   Route<dynamic> getNextFromIntent(RouteSettings settings) {
-    if(flutterIntentService != null && settings.arguments is FlutterIntent && settings.arguments != null)
-      return MaterialPageRoute(builder: (_) => flutterIntentService.onIntent(settings.arguments));
+    if(flutterIntentService != null && settings.arguments is FlutterIntent && settings.arguments != null) {
+      if(Platform.isAndroid)
+        return MaterialPageRoute(builder: (_) => flutterIntentService.onIntent(settings.arguments));
+      else 
+        return CupertinoPageRoute(builder: (_) => flutterIntentService.onIntent(settings.arguments));
+    }
     else if(settings.arguments == null) {
-      return MaterialPageRoute(builder: (_) => flutterIntentService.onIntent(FlutterIntent.withNoContext(name: "/")));
+      if(Platform.isAndroid)
+        return MaterialPageRoute(builder: (_) => flutterIntentService.onIntent(FlutterIntent.withNoContext(name: "/")));
+      else 
+        return CupertinoPageRoute(builder: (_) => flutterIntentService.onIntent(FlutterIntent.withNoContext(name: "/")));
     }
     return MaterialPageRoute(builder: (_) => FlutterIntentError(message: "ERROR: The FlutterIntent or the flutterIntenService of the PageNavigator attribute is null"));
   }
@@ -37,6 +48,7 @@ class PageNavigator {
   String bottomNavigationText;
   Color backgroundColor;
   Widget activeIcon;
+  PageRoute customPageRoute;
   GlobalKey<NavigatorState> key = GlobalKey<NavigatorState>();
   FlutterIntentService flutterIntentService;
 }
