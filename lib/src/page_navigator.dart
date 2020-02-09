@@ -20,7 +20,7 @@ class PageNavigator {
     if(flutterIntentService != null && settings.arguments is FlutterIntent && settings.arguments != null)
       return MaterialPageRoute(builder: (_) => flutterIntentService.onIntent(settings.arguments));
     else if(settings.arguments == null) {
-      MaterialPageRoute(builder: (_) => flutterIntentService.onIntent(FlutterIntent.withNoContext(name: "/")));
+      return MaterialPageRoute(builder: (_) => flutterIntentService.onIntent(FlutterIntent.withNoContext(name: "/")));
     }
     return MaterialPageRoute(builder: (_) => FlutterIntentError(message: "Error"));
   }
