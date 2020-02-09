@@ -88,7 +88,7 @@ With passing data:
 
 ## Using the FlutterIntent navigation system
 
-This system is especially developed for this package and imitates the intent system of the Android Framework. Please use
+This system is especially developed for this package and imitates the intent system of the Android Framework. Please
 be aware that you use only one of the provided navigation system. So if you want to use the onGenerateRoute attribute the flutterIntentService has to be null and vice versa.
 
 ### 1. Use the flutterIntentService attribute of the PageNavigator class
@@ -123,7 +123,6 @@ FlutterIntent(context: context,name: "/page2")
 
 Don't forget to call the startActivity in the end. This will start the next activity and pass your data to the next page which you defined in the PageNavigator in step 1.
 
+### Example
 
-## Example
-
-![](BottomMultiNav.gif)
+![](https://drive.google.com/open?id=1YkZMu8SJmJej1Sdmo2on74qJm_6SgAue)
