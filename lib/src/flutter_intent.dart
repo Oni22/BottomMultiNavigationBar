@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class FlutterIntent {
@@ -78,8 +79,8 @@ class FlutterIntentService {
     this.onIntent
   });
 
-  static convertToIntentService(RouteSettings settings,Widget Function(FlutterIntent intent) builder) {
-    builder(settings.arguments);
+  static Route<dynamic> convertToIntentService(RouteSettings settings,Widget Function(FlutterIntent intent) builder) {
+   return MaterialPageRoute(builder: (_) => builder(settings.arguments));
   }
 
   Widget Function(FlutterIntent intent) onIntent;
