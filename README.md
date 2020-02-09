@@ -57,5 +57,32 @@ Be sure that you use "/" in your namings like "/page1". PageNavigator.home repre
   }
 ```
 
+### 4. Navigate
 
+You can use the Navigator.of(context).pushNamed() as usual
+
+```dart
+    Navigator.of(context).pushNamed("/page2") 
+```
+
+With passing data:
+
+```dart
+    //push your data
+    Navigator.of(context).pushNamed("/page2-2",arguments: "Test data")
+
+    //in your PageNavigator
+    PageNavigator(
+      bottomNavigationIcon: Icon(Icons.ac_unit),
+      bottomNavigationText: "Page 2",
+      onGenerateRoute: (settings) {
+        if(settings.name == PageNavigator.home)
+          return MaterialPageRoute(builder: (_) => Test(test: "page2-1",index: 1,));
+        if(settings.name == "/page2-2")
+          if(settings.arguments is String)
+            return MaterialPageRoute(builder: (_) => Test(test: settings.arguments,index: 1,));
+          //else error handling
+    }
+  ),
+```
 

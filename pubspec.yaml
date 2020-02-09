@@ -1,6 +1,6 @@
 name: bottommultinavigationbar
 description: A widget where each fragment has their own navigation history inside the bottom navigation bar
-version: 1.0.1
+version: 1.0.2
 homepage: https://www.onurozkan.net/
 
 environment:
