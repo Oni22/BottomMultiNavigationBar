@@ -125,4 +125,4 @@ Don't forget to call the startActivity in the end. This will start the next acti
 
 ### Example
 
-![](https://drive.google.com/open?id=1YkZMu8SJmJej1Sdmo2on74qJm_6SgAue)
+![](BottomMultiNav.gif)

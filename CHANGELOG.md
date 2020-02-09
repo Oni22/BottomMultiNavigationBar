@@ -1,4 +1,4 @@
-## [1.1.1] - 09.02.2020
+## [1.1.2] - 09.02.2020
 
 * added new navigation system FlutterIntent for simplifying data exchange between widgets
 * optimizing and fixes
