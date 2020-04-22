@@ -75,7 +75,7 @@ class _BottomMultiNavigationBarState extends State<BottomMultiNavigationBar> {
       offstage: widget.index != index,
       child: Navigator(
         initialRoute: widget.pageNavigators[index].initialRoute ?? "/",
-        onGenerateRoute: widget.pageNavigators[index].onGenerateRoute != null ? widget.pageNavigators[index].onGenerateRoute : widget.pageNavigators[index].getNextFromIntent,
+        onGenerateRoute: widget.pageNavigators[index].onGenerateRoute,
         key: widget.pageNavigators[index].key,
       )
     );

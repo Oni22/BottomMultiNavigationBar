@@ -1,6 +1,3 @@
-import 'dart:io';
-
-import 'package:bottommultinavigationbar/src/flutter_intent.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -13,34 +10,16 @@ import 'package:flutter/widgets.dart';
 /// only one of the systems. So if you want to use the onGenerateRoute attribute the flutterIntentService has to be null and vice versa.
 class PageNavigator {
 
-  static String home = "/";
+  static const String home = "/";
 
   PageNavigator({
-    this.bottomNavigationIcon,
+    @required this.bottomNavigationIcon,
     this.bottomNavigationText,
-    this.flutterIntentService,
-    this.customPageRoute,
-    this.onGenerateRoute,
+    @required this.onGenerateRoute,
     this.initialRoute,
     this.backgroundColor,
     this.activeIcon
   });
-
-  Route<dynamic> getNextFromIntent(RouteSettings settings) {
-    if(flutterIntentService != null && settings.arguments is FlutterIntent && settings.arguments != null) {
-      if(Platform.isAndroid)
-        return MaterialPageRoute(builder: (_) => flutterIntentService.onIntent(settings.arguments));
-      else 
-        return CupertinoPageRoute(builder: (_) => flutterIntentService.onIntent(settings.arguments));
-    }
-    else if(settings.arguments == null) {
-      if(Platform.isAndroid)
-        return MaterialPageRoute(builder: (_) => flutterIntentService.onIntent(FlutterIntent.withNoContext(name: "/")));
-      else 
-        return CupertinoPageRoute(builder: (_) => flutterIntentService.onIntent(FlutterIntent.withNoContext(name: "/")));
-    }
-    return MaterialPageRoute(builder: (_) => FlutterIntentError(message: "ERROR: The FlutterIntent or the flutterIntenService of the PageNavigator attribute is null"));
-  }
 
   Route<dynamic> Function(RouteSettings) onGenerateRoute;
   String initialRoute;
@@ -50,20 +29,4 @@ class PageNavigator {
   Widget activeIcon;
   PageRoute customPageRoute;
   GlobalKey<NavigatorState> key = GlobalKey<NavigatorState>();
-  FlutterIntentService flutterIntentService;
-}
-
-class FlutterIntentError extends StatelessWidget {
-
-  final String message;
-  const FlutterIntentError({Key key,this.message}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(message),
-      ),
-    );
-  }
 }
