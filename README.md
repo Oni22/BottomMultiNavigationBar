@@ -86,27 +86,4 @@ With passing data:
   ),
 ```
 
-## Using the FlutterIntent navigation system
-
-This system is especially developed for this package and imitates the intent system of the Android Framework. Please
-be aware that you use only one of the provided navigation system. So if you want to use the onGenerateRoute attribute the flutterIntentService has to be null and vice versa.
-
-### 1. Use the flutterIntentService attribute of the PageNavigator class
-
-```dart
-PageNavigator(
-    bottomNavigationIcon: Icon(Icons.ac_unit),
-    bottomNavigationText: "Page 1",
-    flutterIntentService: FlutterIntentService(
-      onIntent: (intent) {
-      if(intent.name == "/")
-        return Test(name: intent.getStringExtra("str_page_name"));
-      if(intent.name == "/page2")
-        //we now that we get a boolean 
-        return TestBool(isTrue: intent.getBoolExtra("bool_value"));
-      }
-    )
-  ),
-```
-
 ![](BottomMultiNav.gif)
