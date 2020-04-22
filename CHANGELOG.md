@@ -1,3 +1,7 @@
+## [1.2.1] - 22.04.2020
+
+* updated readme
+
 ## [1.2.0] - 22.04.2020
 
 * added example (request #2)

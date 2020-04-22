@@ -1,7 +1,5 @@
 import 'package:bottommultinavigationbar/src/page_navigator.dart';
 import 'package:flutter/material.dart';
-//google-site-verification=IwgcJmmBpV677YoHhHZKiPGYdbCo8spqw51i9Dc7ZvQ
-//old
 
 class BottomMultiNavigationBar extends StatefulWidget {
   
