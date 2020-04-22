@@ -109,20 +109,4 @@ PageNavigator(
   ),
 ```
 
-The intent which is passed as parameter holds the data. From there you can get your data like in the example above.
-
-### 2. Send an intent
-
-For sending an intent use the FlutterIntent() class:
-
-```dart 
-FlutterIntent(context: context,name: "/page2")
-..putExtra("bool_value",true)
-..startActivity();
-```
-
-Don't forget to call the startActivity in the end. This will start the next activity and pass your data to the next page which you defined in the PageNavigator in step 1.
-
-### Example
-
 ![](BottomMultiNav.gif)
